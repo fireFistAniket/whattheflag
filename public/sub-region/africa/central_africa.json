@@ -1,0 +1,18 @@
+{
+  "name": "Central Africa",
+  "cover": "https://cdn.pixabay.com/photo/2017/04/15/20/14/giraffe-2233366_1280.jpg",
+  "description": "Central Africa is known for its rainforests, rivers, and diverse wildlife, including endangered species like gorillas and elephants. It includes countries like Democratic Republic of Congo, Republic of Congo, Cameroon, Gabon, and Central African Republic.",
+  "area": "6,486,000 sq km",
+  "population": "170 million",
+  "places_to_travel": [
+    "Virunga National Park, DR Congo",
+    "Dzanga-Sangha Reserve, Central African Republic",
+    "Loango National Park, Gabon",
+    "Lobeke National Park, Cameroon"
+  ],
+  "famous_monuments": [
+    "Brazzaville Cathedral, Republic of Congo",
+    "Lope National Park, Gabon",
+    "Garamba National Park, DR Congo"
+  ]
+}

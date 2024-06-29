@@ -55,7 +55,7 @@ export function GlowingBorderButton({
 
       <div
         className={cn(
-          "relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-base font-medium antialiased px-[2vmax] py-[1vmax]",
+          "relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-base font-medium antialiased px-[2vmax] py-[1vmax] para",
           className
         )}
         style={{

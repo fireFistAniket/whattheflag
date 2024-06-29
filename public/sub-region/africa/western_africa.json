@@ -1,0 +1,18 @@
+{
+  "name": "Western Africa",
+  "cover": "https://cdn.pixabay.com/photo/2023/08/05/16/25/elephants-8171393_1280.jpg",
+  "description": "West Africa is known for its rich cultural heritage, music, and diverse landscapes. It includes countries like Nigeria, Ghana, Senegal, Ivory Coast, and Mali.",
+  "area": "5,112,903 sq km",
+  "population": "400 million",
+  "places_to_travel": [
+    "Lagos, Nigeria",
+    "Accra, Ghana",
+    "Dakar, Senegal",
+    "Abidjan, Ivory Coast"
+  ],
+  "famous_monuments": [
+    "Djenne Mosque, Mali",
+    "Cape Coast Castle, Ghana",
+    "Goree Island, Senegal"
+  ]
+}

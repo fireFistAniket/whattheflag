@@ -18,10 +18,25 @@ interface CountryName {
   official: string;
 }
 
+interface Currency {
+  currencies: {
+    [key: string]: {
+      name: string;
+      symbol: string;
+    };
+  };
+}
+
+interface ExtractedCurrency {
+  name: string;
+  symbol: string;
+}
+
 const Home = () => {
   const [countries, setCountries] = useState<Countries[]>([]);
-  const [fullHeight, setFullHeight] = useState<boolean>(false);
-
+  const [currencies, setCurrencies] = useState<ExtractedCurrency[]>([]);
+  const [fullCountryHeight, setFullCountryHeight] = useState<boolean>(false);
+  const [fullCurrencyHeight, setFullCurrencyHeight] = useState<boolean>(false);
   const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",
@@ -488,8 +503,36 @@ const Home = () => {
     }
   }
 
+  async function getAllCurrencies() {
+    try {
+      const res: Response = await fetch(
+        `${import.meta.env.VITE_REST_COUNTRY_API_URL}/all?fields=currencies`
+      );
+      const data: Currency[] = await res.json();
+      const uniqueCurrencies = new Map<string, ExtractedCurrency>();
+      data.forEach((item) => {
+        const currencies = Object.values(item.currencies);
+        if (currencies.length > 0) {
+          const currency = currencies[0];
+          if (!uniqueCurrencies.has(currency.name)) {
+            uniqueCurrencies.set(currency.name, {
+              name: currency.name,
+              symbol: currency.symbol,
+            });
+          }
+        }
+      });
+      const extractedData = Array.from(uniqueCurrencies.values());
+
+      setCurrencies(extractedData);
+    } catch (error: unknown) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     getAllCountriesName();
+    getAllCurrencies();
   }, []);
 
   const items = [
@@ -503,6 +546,7 @@ const Home = () => {
           alt="Oceania"
         />
       ),
+      href: "oceania",
     },
     {
       title: "Europe",
@@ -514,6 +558,7 @@ const Home = () => {
           alt="europe"
         />
       ),
+      href: "europe",
     },
     {
       title: "Africa",
@@ -525,6 +570,7 @@ const Home = () => {
           alt="africa"
         />
       ),
+      href: "africa",
     },
     {
       title: "North America",
@@ -537,6 +583,7 @@ const Home = () => {
           alt="north america"
         />
       ),
+      href: "north%20america",
     },
     {
       title: "South America",
@@ -549,6 +596,7 @@ const Home = () => {
           alt="south america"
         />
       ),
+      href: "south%20america",
     },
     {
       title: "Asia",
@@ -560,6 +608,7 @@ const Home = () => {
           alt="asia"
         />
       ),
+      href: "asia",
     },
     {
       title: "Antarctic",
@@ -572,6 +621,7 @@ const Home = () => {
           alt="Antarctic"
         />
       ),
+      href: "antarctic",
     },
   ];
 
@@ -612,12 +662,15 @@ const Home = () => {
           </motion.div>
           <div className="absolute w-full bottom-0 inset-x-0 h-40 pointer-events-none select-none z-40" />
           <div className="absolute w-full -bottom-20 h-80 md:h-full z-10">
-            <World data={sampleArcs} globeConfig={globeConfig} />
+            <World
+              data={sampleArcs}
+              globeConfig={globeConfig}
+            />
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center gap-6">
-        <HeroHighlight>
+      <div className="flex flex-col items-center gap-6 my-[4vh]">
+        <HeroHighlight className="heading">
           <motion.h1
             initial={{
               opacity: 0,
@@ -642,6 +695,7 @@ const Home = () => {
             <BentoGridItem
               key={i}
               title={item.title}
+              href={item.href}
               description={item.description}
               header={item.header}
               className={i === 3 || i === 6 ? "md:col-span-2" : ""}
@@ -650,7 +704,7 @@ const Home = () => {
         </BentoGrid>
       </div>
       <div className="flex flex-col items-center gap-[4vh] mx-[3vmax] my-[2vmax]">
-        <HeroHighlight>
+        <HeroHighlight className="heading">
           <motion.h1
             initial={{
               opacity: 0,
@@ -670,36 +724,58 @@ const Home = () => {
             <Highlight className="">195 countries in our world.</Highlight>
           </motion.h1>
         </HeroHighlight>
-        <p className="text-white text-xl font-medium">
+        <p className="text-white text-xl font-medium para">
           We gather all information of countries like captial city, population,
           currency, region. In below you can find all 195 countries.
         </p>
-        <div
-          className={`flex justify-between gap-[2vmin] overflow-hidden flex-wrap ${
-            fullHeight ? "" : "h-[28vh]"
-          }`}
+        <motion.div
+          initial={{ height: "32vh" }}
+          animate={{ height: fullCountryHeight ? "auto" : "32vh" }}
+          transition={{ duration: 2 }}
+          className={`flex justify-between gap-[2vmin] overflow-hidden flex-wrap`}
         >
           {countries.length > 0 &&
             countries.map((country, ind) => (
               <GlowingBorderButton
                 key={ind}
                 borderRadius="1.75rem"
-                className="bg-gradient-to-r from-[#1abc9c] to-[#9b59b6] text-white border-neutral-200"
+                className="bg-gradient-to-r from-[#1abc9c] to-[#9b59b6] text-white border-neutral-200 gap-2 items-center"
               >
-                {country.name.common}
+                <span className="className='border rounded-full w-8 h-8 inline-flex items-center justify-center bg-indigo-700">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="icon icon-tabler icons-tabler-outline icon-tabler-world"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                    <path d="M3.6 9h16.8" />
+                    <path d="M3.6 15h16.8" />
+                    <path d="M11.5 3a17 17 0 0 0 0 18" />
+                    <path d="M12.5 3a17 17 0 0 1 0 18" />
+                  </svg>
+                </span>
+                <span>{country.name.common}</span>
               </GlowingBorderButton>
             ))}
-        </div>
+        </motion.div>
         <button
           type="button"
-          onClick={() => setFullHeight(!fullHeight)}
-          className="rounded-2xl text-xl text-white capitalize font-semibold border-neutral-300 border py-[2vmin] px-[4vmin]"
+          onClick={() => setFullCountryHeight(!fullCountryHeight)}
+          className="rounded-2xl text-xl text-white capitalize font-semibold border-neutral-300 border py-[2vmin] para px-[4vmin]"
         >
-          view all
+          {fullCountryHeight ? "hide all" : "view all"}
         </button>
       </div>
-      <div className="flex flex-col items-center gap-6">
-        <HeroHighlight>
+      <div className="flex flex-col items-center gap-6 my-[4vh]">
+        <HeroHighlight className="heading">
           <motion.h1
             initial={{
               opacity: 0,
@@ -719,7 +795,62 @@ const Home = () => {
             <Highlight className="">their Sub-Region.</Highlight>
           </motion.h1>
         </HeroHighlight>
-        <ImagesSlider className="h-[70vh]" images={images} />
+        <ImagesSlider className="h-[80vh]" images={images} />
+      </div>
+      <div className="flex flex-col items-center gap-[4vh] mx-[3vmax] my-[2vmax]">
+        <HeroHighlight className="heading">
+          <motion.h1
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              y: [20, -5, 0],
+            }}
+            transition={{
+              duration: 0.5,
+              ease: [0.4, 0.0, 0.2, 1],
+            }}
+            className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-white leading-relaxed lg:leading-snug text-center mx-auto "
+          >
+            There are varity of{"  "}
+            <Highlight className="">Currencies present in our world.</Highlight>
+          </motion.h1>
+        </HeroHighlight>
+        <p className="text-white text-xl font-medium para">
+          You can go through each an every currencies present in the world.
+        </p>
+        <motion.div
+          initial={{ height: "32vh" }}
+          animate={{ height: fullCurrencyHeight ? "auto" : "32vh" }}
+          transition={{ duration: 2 }}
+          className={`flex justify-between gap-[2vmin] overflow-hidden flex-wrap`}
+        >
+          {currencies.length > 0 &&
+            currencies.map(
+              (currency, ind) =>
+                currency.name !== "" && (
+                  <GlowingBorderButton
+                    key={ind}
+                    borderRadius="1.75rem"
+                    className="bg-gradient-to-r from-[#1abc9c] to-[#9b59b6] text-white border-neutral-200 gap-2 items-center"
+                  >
+                    <span className="border rounded-full w-8 h-8 inline-flex items-center justify-center bg-indigo-700">
+                      {currency.symbol}
+                    </span>
+                    <span>{currency.name}</span>
+                  </GlowingBorderButton>
+                )
+            )}
+        </motion.div>
+        <button
+          type="button"
+          onClick={() => setFullCurrencyHeight(!fullCurrencyHeight)}
+          className="rounded-2xl text-xl text-white capitalize font-semibold border-neutral-300 border py-[2vmin] px-[4vmin] para"
+        >
+          {fullCurrencyHeight ? "hide all" : "view all"}
+        </button>
       </div>
     </Suspense>
   );

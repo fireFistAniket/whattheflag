@@ -1,0 +1,18 @@
+{
+  "name": "Southeast Asia",
+  "cover": "",
+  "description": "Southeast Asia is known for its tropical beaches, rich cultural diversity, and ancient temples. It includes countries like Thailand, Vietnam, Indonesia, Malaysia, Philippines, and Singapore.",
+  "area": "4,545,792 sq km",
+  "population": "670 million",
+  "places_to_travel": [
+    "Bangkok, Thailand",
+    "Bali, Indonesia",
+    "Halong Bay, Vietnam",
+    "Boracay Island, Philippines"
+  ],
+  "famous_monuments": [
+    "Angkor Wat, Cambodia",
+    "Borobudur, Indonesia",
+    "Petronas Twin Towers, Malaysia"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "South America",
+  "cover": "https://cdn.pixabay.com/photo/2019/08/19/10/44/peru-4416038_1280.jpg",
+  "description": "South America is the fourth-largest continent, spanning about 17.8 million square kilometers (6.9 million square miles). It is known for its diverse landscapes including the Amazon rainforest, the Andes Mountains, and the Atacama Desert. South America is home to vibrant cultures, including Brazil's Carnival and Argentina's tango.",
+  "area": "17,840,000 sq km",
+  "population": "430 million",
+  "borders": "Borders with North America to the northwest (Panama Canal), Europe to the northeast (Greenland Sea), and Asia to the west (Bering Strait).",
+  "covered_seas": ["Caribbean Sea", "Atlantic Ocean", "Pacific Ocean"],
+  "places_to_travel": [
+    "Rio de Janeiro, Brazil",
+    "Machu Picchu, Peru",
+    "Buenos Aires, Argentina",
+    "Galápagos Islands, Ecuador",
+    "Patagonia, Chile/Argentina"
+  ],
+  "famous_monuments": [
+    "Christ the Redeemer, Brazil",
+    "Machu Picchu, Peru",
+    "Angel Falls, Venezuela",
+    "Iguaçu Falls, Brazil/Argentina"
+  ]
+}

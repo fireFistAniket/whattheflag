@@ -1,0 +1,22 @@
+{
+  "name": "Europe",
+  "cover": "https://cdn.pixabay.com/photo/2023/05/03/19/57/passau-7968535_1280.jpg",
+  "description": "Europe is a continent of about 10.2 million square kilometers (3.9 million square miles), known for its rich history, diverse cultures, and influential contributions to art, literature, and global politics. It includes landmarks such as the Eiffel Tower in Paris, the Colosseum in Rome, and historical cities like London and Berlin.",
+  "area": "10,180,000 sq km",
+  "population": "747 million",
+  "borders": "Borders with Asia to the east (Ural Mountains), Africa to the south (Strait of Gibraltar), and North America to the west (Atlantic Ocean).",
+  "covered_seas": ["Mediterranean Sea", "North Sea", "Baltic Sea"],
+  "places_to_travel": [
+    "Paris, France",
+    "Rome, Italy",
+    "Barcelona, Spain",
+    "Amsterdam, Netherlands",
+    "Prague, Czech Republic"
+  ],
+  "famous_monuments": [
+    "Colosseum, Italy",
+    "Eiffel Tower, France",
+    "Acropolis of Athens, Greece",
+    "Sagrada Família, Spain"
+  ]
+}

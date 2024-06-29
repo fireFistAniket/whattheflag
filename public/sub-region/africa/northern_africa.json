@@ -1,0 +1,18 @@
+{
+  "name": "Northern Africa",
+  "cover": "https://cdn.pixabay.com/photo/2015/04/11/22/15/volcano-718277_1280.jpg",
+  "description": "North Africa is known for its desert landscapes, ancient ruins, and cultural diversity. It includes countries like Morocco, Egypt, Algeria, Tunisia, and Libya.",
+  "area": "6,140,000 sq km",
+  "population": "230 million",
+  "places_to_travel": [
+    "Pyramids of Giza, Egypt",
+    "Marrakech, Morocco",
+    "Tunis, Tunisia",
+    "Algiers, Algeria"
+  ],
+  "famous_monuments": [
+    "Great Sphinx of Giza, Egypt",
+    "Carthage, Tunisia",
+    "Atlas Mountains, Morocco"
+  ]
+}

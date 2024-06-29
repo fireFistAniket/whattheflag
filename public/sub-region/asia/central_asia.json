@@ -1,0 +1,18 @@
+{
+  "name": "Central Asia",
+  "cover": "",
+  "description": "Central Asia is known for its nomadic traditions, Silk Road heritage, and stunning landscapes. It includes countries like Kazakhstan, Uzbekistan, Turkmenistan, Kyrgyzstan, and Tajikistan.",
+  "area": "4,003,576 sq km",
+  "population": "76 million",
+  "places_to_travel": [
+    "Samarkand, Uzbekistan",
+    "Almaty, Kazakhstan",
+    "Ashgabat, Turkmenistan",
+    "Bishkek, Kyrgyzstan"
+  ],
+  "famous_monuments": [
+    "Registan, Uzbekistan",
+    "Astana Bayterek Tower, Kazakhstan",
+    "Merv, Turkmenistan"
+  ]
+}

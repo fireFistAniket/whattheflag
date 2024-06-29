@@ -1,0 +1,22 @@
+{
+  "name": "Africa",
+  "cover": "https://cdn.pixabay.com/photo/2019/04/12/11/46/antelope-4121962_1280.jpg",
+  "description": "Africa is the second-largest continent, covering about 30.3 million square kilometers (11.7 million square miles). It is known for its diverse cultures, wildlife, and landscapes. The continent includes the Sahara Desert, the world's largest hot desert, and the Serengeti, famous for its annual migration of millions of wildebeest and zebra.",
+  "area": "30,370,000 sq km",
+  "population": "1.3 billion",
+  "borders": "Borders are with Asia to the northeast (Suez Canal), Europe to the north (Mediterranean Sea), and Madagascar to the southeast (Mozambique Channel).",
+  "covered_seas": [],
+  "places_to_travel": [
+    "Serengeti National Park, Tanzania",
+    "Maasai Mara National Reserve, Kenya",
+    "Victoria Falls, Zambia/Zimbabwe",
+    "Pyramids of Giza, Egypt",
+    "Cape Town, South Africa"
+  ],
+  "famous_monuments": [
+    "Great Sphinx of Giza, Egypt",
+    "Timbuktu, Mali",
+    "Mount Kilimanjaro, Tanzania",
+    "Table Mountain, South Africa"
+  ]
+}

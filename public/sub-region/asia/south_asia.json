@@ -1,0 +1,18 @@
+{
+  "name": "South Asia",
+  "cover": "",
+  "description": "South Asia is known for its rich cultural heritage, historical landmarks, and diverse landscapes. It includes countries like India, Pakistan, Bangladesh, Sri Lanka, Nepal, and Bhutan.",
+  "area": "5,134,641 sq km",
+  "population": "1.9 billion",
+  "places_to_travel": [
+    "Taj Mahal, India",
+    "Varanasi, India",
+    "Kathmandu, Nepal",
+    "Colombo, Sri Lanka"
+  ],
+  "famous_monuments": [
+    "Taj Mahal, India",
+    "Sigiriya, Sri Lanka",
+    "Golden Temple, India"
+  ]
+}

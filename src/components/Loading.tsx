@@ -10,7 +10,7 @@ const Loading = () => {
         play
         style={{ width: "25vmax" }}
       />
-      <p className="text-[2vmin] font-medium text-white">
+      <p className="text-[2vmin] font-medium text-white para">
         Please wait while we complete the process
       </p>
     </div>

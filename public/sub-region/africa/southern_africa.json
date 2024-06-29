@@ -1,0 +1,18 @@
+{
+  "name": "Southern Africa",
+  "cover": "https://cdn.pixabay.com/photo/2017/05/08/15/11/capetown-2295679_1280.jpg",
+  "description": "Southern Africa is known for its diverse landscapes, wildlife, and vibrant cultures. It includes countries like South Africa, Botswana, Namibia, Zimbabwe, and Zambia.",
+  "area": "2,734,000 sq km",
+  "population": "67 million",
+  "places_to_travel": [
+    "Cape Town, South Africa",
+    "Okavango Delta, Botswana",
+    "Victoria Falls, Zimbabwe/Zambia",
+    "Sossusvlei, Namibia"
+  ],
+  "famous_monuments": [
+    "Table Mountain, South Africa",
+    "Fish River Canyon, Namibia",
+    "Mana Pools National Park, Zimbabwe"
+  ]
+}

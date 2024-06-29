@@ -1,0 +1,23 @@
+{
+  "name": "Asia",
+  "cover": "https://cdn.pixabay.com/photo/2018/05/01/07/52/tuscany-3364921_1280.jpg",
+  "description": "Asia is the largest continent, spanning over 44.5 million square kilometers (17.2 million square miles). It is home to diverse cultures, ancient civilizations, and modern economic powerhouses like China, Japan, and India. Asia boasts the Himalayas, the highest mountain range in the world, and the Gobi Desert, one of the largest deserts.",
+  "area": "44,579,000 sq km",
+  "population": "4.6 billion",
+  "borders": "Borders with Europe to the west (Ural Mountains), Africa to the southwest (Suez Canal), and Oceania to the southeast (Sunda Strait).",
+  "covered_seas": [],
+  "places_to_travel": [
+    "Great Wall of China",
+    "Taj Mahal, India",
+    "Kyoto, Japan",
+    "Angkor Wat, Cambodia",
+    "Dubai, United Arab Emirates"
+  ],
+  "famous_monuments": [
+    "Forbidden City, China",
+    "Petra, Jordan",
+    "Mount Everest, Nepal",
+    "Burj Khalifa, UAE",
+    "Taj Mahal, India"
+  ]
+}
