@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
 const Continent = () => {
-  let { continent } = useParams();
+  // let { continent } = useParams();
 
   return <div>Continent</div>;
 };
