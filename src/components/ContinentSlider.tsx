@@ -143,11 +143,11 @@ export const ImagesSlider = ({
           <motion.img
             key={currentIndex}
             src={loadedImages[currentIndex]}
-            initial="initial"
-            animate="visible"
+            initial='initial'
+            animate='visible'
             exit={direction === "up" ? "upExit" : "downExit"}
             variants={slideVariants}
-            className="image h-full w-full absolute inset-0 object-cover object-center"
+            className='image h-full w-full absolute inset-0 object-cover object-center'
           />
           <motion.div
             initial={{
@@ -161,21 +161,21 @@ export const ImagesSlider = ({
             transition={{
               duration: 0.6,
             }}
-            className="z-50 flex flex-col justify-center items-center"
+            className='z-50 flex flex-col justify-center items-center'
           >
-            <motion.p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 capitalize heading">
+            <motion.p className='font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 capitalize heading'>
               {images[currentIndex].title}
             </motion.p>
-            <motion.p className="font-medium text-xl md:text-3xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 para">
+            <motion.p className='font-medium text-xl md:text-3xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4 para'>
               Check detail information of countries of{" "}
-              <span className="capitalize font-bold text-xl md:text-5xl">
+              <span className='capitalize font-bold text-xl md:text-5xl'>
                 {images[currentIndex].title}
               </span>
               .
             </motion.p>
-            <button className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20 text-white mx-auto text-center rounded-full relative mt-4 para">
+            <button className='px-4 py-2 backdrop-blur-sm border bg-cyan-300/10 border-cyan-500/20 text-white mx-auto text-center rounded-full relative mt-4 para'>
               <span>Let&apos;s go →</span>
-              <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
+              <div className='absolute inset-x-0 h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-cyan-500 to-transparent' />
             </button>
           </motion.div>
         </AnimatePresence>
