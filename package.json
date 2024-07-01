@@ -21,6 +21,7 @@
     "react-dom": "^18.3.1",
     "react-lottie-player": "^2.0.0",
     "react-router-dom": "^6.24.0",
+    "react-simple-image-viewer": "^1.2.2",
     "react-simple-maps": "^3.0.0",
     "tailwind-merge": "^2.3.0",
     "three": "^0.165.0",

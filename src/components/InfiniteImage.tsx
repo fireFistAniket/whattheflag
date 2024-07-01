@@ -1,7 +1,6 @@
-"use client";
-
 import { cn } from "../utils/cn";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import ImageViewer from "react-simple-image-viewer";
 
 export const InfiniteMovingCards = ({
   items,
@@ -19,12 +18,23 @@ export const InfiniteMovingCards = ({
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
 
-  console.log(items);
-
   useEffect(() => {
     addAnimation();
   }, []);
-  const [start, setStart] = useState(false);
+  const [start, setStart] = useState<boolean>(false);
+  const [isViewerOpen, setIsViewerOpen] = useState<boolean>(false);
+  const [currentImage, setCurrentImage] = useState<number>(0);
+
+  const openImageViewer = useCallback((index: number) => {
+    setCurrentImage(index);
+    setIsViewerOpen(true);
+  }, []);
+
+  const closeImageViewer = () => {
+    setCurrentImage(0);
+    setIsViewerOpen(false);
+  };
+
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
@@ -85,12 +95,13 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="w-[350px] max-w-full flex justify-center relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:w-[30vmax]"
+            className="w-[350px] max-w-full flex justify-center relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:w-[30vmax] cursor-pointer"
             style={{
               background:
                 "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
             }}
             key={idx}
+            onClick={() => openImageViewer(idx)}
           >
             <blockquote>
               <div
@@ -102,6 +113,18 @@ export const InfiniteMovingCards = ({
           </li>
         ))}
       </ul>
+      {isViewerOpen && (
+        <ImageViewer
+          src={items}
+          currentIndex={currentImage}
+          onClose={closeImageViewer}
+          disableScroll
+          backgroundStyle={{
+            backgroundColor: "rgba(0,0,0,0.9)",
+          }}
+          closeOnClickOutside={true}
+        />
+      )}
     </div>
   );
 };

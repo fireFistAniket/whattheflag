@@ -1,6 +1,10 @@
 {
   "name": "Antarctica",
   "cover": "https://cdn.pixabay.com/photo/2018/09/26/18/44/hut-3705346_1280.jpg",
+  "mapconfig": {
+    "scale": 250,
+    "center": [0, -90]
+  },
   "description": "Antarctica is the fifth-largest continent, covering about 14 million square kilometers (5.4 million square miles), mostly covered in ice. It is the coldest, windiest, and driest continent, with temperatures dropping as low as -80°C (-112°F). Antarctica is home to scientific research stations and unique wildlife such as penguins, seals, and whales.",
   "area": "14,000,000 sq km",
   "population": "No permanent population",

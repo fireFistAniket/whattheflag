@@ -17,59 +17,13 @@ import {
 import PageDetailsDropDown from "../components/PageDetailsDropDown";
 import { InfiniteMovingCards } from "../components/InfiniteImage";
 
-const asiaCountries = [
-  "Afghanistan",
-  "Armenia",
-  "Azerbaijan",
-  "Bahrain",
-  "Bangladesh",
-  "Bhutan",
-  "Brunei",
-  "Myanmar",
-  "Cambodia",
-  "China",
-  "Cyprus",
-  "Georgia",
-  "India",
-  "Indonesia",
-  "Iran",
-  "Iraq",
-  "Israel",
-  "Japan",
-  "Jordan",
-  "Kazakhstan",
-  "Kuwait",
-  "Kyrgyzstan",
-  "Laos",
-  "Lebanon",
-  "Malaysia",
-  "Maldives",
-  "Mongolia",
-  "Nepal",
-  "Oman",
-  "Pakistan",
-  "Philippines",
-  "Qatar",
-  "Saudi Arabia",
-  "Singapore",
-  "South Korea",
-  "Sri Lanka",
-  "Syria",
-  "Taiwan",
-  "Tajikistan",
-  "Thailand",
-  "Timor-Leste",
-  "Turkey",
-  "Turkmenistan",
-  "United Arab Emirates",
-  "Uzbekistan",
-  "Vietnam",
-  "Yemen",
-];
-
 interface ContinentDataTypes {
   name: string;
   cover: string;
+  mapconfig: {
+    scale: number;
+    center: [number, number];
+  };
   description: string;
   area: string;
   population: string;
@@ -84,6 +38,10 @@ const Continent = () => {
   const [continentData, setContinentData] = useState<ContinentDataTypes>({
     name: "",
     cover: "",
+    mapconfig: {
+      scale: 0,
+      center: [0, 0],
+    },
     description: "",
     area: "",
     population: "",
@@ -92,6 +50,7 @@ const Continent = () => {
     places_to_travel: [],
     famous_monuments: [],
   });
+  const [countriesName, setCountriesName] = useState<string[]>([]);
 
   const [continentImage, setContinentImage] = useState<string[]>([]);
 
@@ -131,9 +90,33 @@ const Continent = () => {
     }
   }
 
+  async function getCountryName(name: string | any) {
+    try {
+      const res = await fetch(
+        `${
+          import.meta.env.VITE_REST_COUNTRY_API_URL
+        }/region/${name}/?fields=name`,
+        {
+          cache: "no-cache",
+        }
+      );
+      const data = await res.json();
+      let names: string[] = [];
+      console.log(data.name);
+      names = data.map(
+        (item: { name: { common: string } }) => item.name.common
+      );
+
+      setCountriesName(names);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     getContinentDetails(continent);
     getImagesContinent(continent);
+    getCountryName(continent);
   }, []);
 
   return (
@@ -149,30 +132,26 @@ const Continent = () => {
         </DetailCover>
       </div>
       <div className="flex items-start mx-[3vmax] gap-[3vmax] my-[3vmin]">
-        <BackgroundGradient className="rounded-[22px] min-w-[30vmax] bg-black">
+        <BackgroundGradient className="rounded-[22px] min-w-[35vmax] bg-black">
           <FollowerPointerCard
             title={<TitleComponent title={`${continent}`} />}
           >
             <div className="flex flex-col items-center bg-dot-thick-neutral-700 p-4 sm:p-10">
               <ComposableMap
                 projection="geoMercator"
-                projectionConfig={{
-                  scale: 300,
-                  center: [95, 20], // Center of Asia
-                }}
+                projectionConfig={continentData.mapconfig}
               >
                 <Geographies geography={mapData}>
                   {({ geographies }) =>
                     geographies
                       .filter((geo) =>
-                        asiaCountries.includes(geo.properties.name)
+                        countriesName.includes(geo.properties.name)
                       )
                       .map((geo) => (
                         <>
                           <Geography
                             key={geo.rsmKey}
                             geography={geo}
-                            onMouseOver={() => console.log(geo)}
                             style={{
                               default: {
                                 fill: "#ffcc00",

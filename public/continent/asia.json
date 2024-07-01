@@ -1,6 +1,10 @@
 {
   "name": "Asia",
   "cover": "https://cdn.pixabay.com/photo/2018/05/01/07/52/tuscany-3364921_1280.jpg",
+  "mapconfig": {
+    "scale": 300,
+    "center": [95, 20]
+  },
   "description": "Asia is the largest continent, spanning over 44.5 million square kilometers (17.2 million square miles). It is home to diverse cultures, ancient civilizations, and modern economic powerhouses like China, Japan, and India. Asia boasts the Himalayas, the highest mountain range in the world, and the Gobi Desert, one of the largest deserts.",
   "area": "44,579,000 sq km",
   "population": "4.6 billion",

@@ -1,6 +1,10 @@
 {
   "name": "North America",
   "cover": "https://cdn.pixabay.com/photo/2017/03/05/00/34/panorama-2117310_1280.jpg",
+  "mapconfig": {
+    "scale": 350,
+    "center": [-100, 40]
+  },
   "description": "North America includes Canada, the United States, Mexico, and various island nations. It covers approximately 24.7 million square kilometers (9.5 million square miles). Known for its economic power, technological innovation, and cultural diversity, North America features natural wonders such as the Grand Canyon and Niagara Falls.",
   "area": "24,709,000 sq km",
   "population": "579 million",

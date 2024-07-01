@@ -16,7 +16,7 @@ const PageDetailsDropDown = ({ btnTitle, description, isOpen }: Pageprops) => {
       className="flex flex-col overflow-hidden p-2 gap-[3vmin]"
       initial={{ height: "5vh" }}
       animate={isExpanded ? { height: "auto" } : { height: "5vh" }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <button
         type="button"
@@ -36,7 +36,7 @@ const PageDetailsDropDown = ({ btnTitle, description, isOpen }: Pageprops) => {
           strokeLinejoin="round"
           initial={{ rotate: "0deg" }}
           animate={isExpanded ? { rotate: "-180deg" } : { rotate: "0deg" }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
           className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />

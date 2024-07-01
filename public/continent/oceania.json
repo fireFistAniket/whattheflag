@@ -1,6 +1,10 @@
 {
   "name": "Oceania",
   "cover": "https://cdn.pixabay.com/photo/2019/05/15/18/22/sydney-4205646_1280.jpg",
+  "mapconfig": {
+    "scale": 500,
+    "center": [135, -25]
+  },
   "description": "Oceania consists of diverse Pacific islands and countries spread over about 8.5 million square kilometers (3.3 million square miles). It includes Australia, New Zealand, and various island nations like Fiji, Papua New Guinea, and Samoa. Oceania is known for its natural beauty, coral reefs, and unique indigenous cultures.",
   "area": "8,525,989 sq/km",
   "population": "42 million",

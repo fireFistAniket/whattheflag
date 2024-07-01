@@ -611,7 +611,7 @@ const Home = () => {
       href: "asia",
     },
     {
-      title: "Antarctic",
+      title: "Antarctica",
       description:
         "Explore the countries which is belong from Antarctic region.",
       header: (
@@ -621,7 +621,7 @@ const Home = () => {
           alt="Antarctic"
         />
       ),
-      href: "antarctic",
+      href: "antarctica",
     },
   ];
 
