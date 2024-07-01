@@ -1,0 +1,18 @@
+{
+  "name": "Western Europe",
+  "cover": "https://open.lib.umn.edu/app/uploads/sites/181/2016/04/4b6d32f64a8685b96528eedfde31f795.jpg",
+  "description": "Western Europe is known for its historical cities, cultural diversity, and economic prosperity. It includes countries like France, Germany, United Kingdom, Netherlands, and Belgium.",
+  "area": "3,833,000 sq km",
+  "population": "194 million",
+  "places_to_travel": [
+    "Paris, France",
+    "London, UK",
+    "Berlin, Germany",
+    "Amsterdam, Netherlands"
+  ],
+  "famous_monuments": [
+    "Eiffel Tower, France",
+    "Brandenburg Gate, Germany",
+    "Big Ben, UK"
+  ]
+}

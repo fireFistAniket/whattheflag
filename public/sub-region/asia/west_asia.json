@@ -1,0 +1,18 @@
+{
+  "name": "West Asia (Middle East)",
+  "cover": "https://www.nationsonline.org/gallery/Qatar/West-Bay-Skyline-Doha-Qatar.jpg",
+  "description": "West Asia, also known as the Middle East, is known for its ancient civilizations, religious significance, and modern cities. It includes countries like Saudi Arabia, Iran, Iraq, Israel, and Turkey.",
+  "area": "5,455,904 sq km",
+  "population": "340 million",
+  "places_to_travel": [
+    "Jerusalem, Israel",
+    "Dubai, UAE",
+    "Istanbul, Turkey",
+    "Riyadh, Saudi Arabia"
+  ],
+  "famous_monuments": [
+    "Petra, Jordan",
+    "Hagia Sophia, Turkey",
+    "Persepolis, Iran"
+  ]
+}

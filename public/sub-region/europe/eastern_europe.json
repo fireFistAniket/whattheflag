@@ -1,0 +1,18 @@
+{
+  "name": "Eastern Europe",
+  "cover": "https://www.tripclap.com/assets/img/storyBanner.jpg",
+  "description": "Eastern Europe is known for its rich cultural heritage, medieval architecture, and scenic landscapes. It includes countries like Russia, Poland, Ukraine, Czech Republic, and Hungary.",
+  "area": "10,180,000 sq km",
+  "population": "293 million",
+  "places_to_travel": [
+    "Moscow, Russia",
+    "Krakow, Poland",
+    "Prague, Czech Republic",
+    "Budapest, Hungary"
+  ],
+  "famous_monuments": [
+    "Red Square, Russia",
+    "Wawel Castle, Poland",
+    "Charles Bridge, Czech Republic"
+  ]
+}
