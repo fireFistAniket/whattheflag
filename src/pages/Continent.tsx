@@ -10,12 +10,9 @@ import mapData from "../assets/global-map.json";
 import { DetailCover } from "../components/DetailCover";
 import { BackgroundGradient } from "../components/BackgroundGradientCard";
 import { useEffect, useState } from "react";
-import {
-  FollowerPointerCard,
-  TitleComponent,
-} from "../components/FollowPointer";
 import PageDetailsDropDown from "../components/PageDetailsDropDown";
 import { InfiniteMovingCards } from "../components/InfiniteImage";
+import { ImageScroll } from "../components/ImageScroll";
 
 interface ContinentDataTypes {
   name: string;
@@ -133,53 +130,49 @@ const Continent = () => {
       </div>
       <div className="flex items-start mx-[3vmax] gap-[3vmax] my-[3vmin]">
         <BackgroundGradient className="rounded-[22px] min-w-[35vmax] bg-black">
-          <FollowerPointerCard
-            title={<TitleComponent title={`${continent}`} />}
-          >
-            <div className="flex flex-col items-center bg-dot-thick-neutral-700 p-4 sm:p-10">
-              <ComposableMap
-                projection="geoMercator"
-                projectionConfig={continentData.mapconfig}
-              >
-                <Geographies geography={mapData}>
-                  {({ geographies }) =>
-                    geographies
-                      .filter((geo) =>
-                        countriesName.includes(geo.properties.name)
-                      )
-                      .map((geo) => (
-                        <>
-                          <Geography
-                            key={geo.rsmKey}
-                            geography={geo}
-                            style={{
-                              default: {
-                                fill: "#ffcc00",
-                                outline: "none",
-                              },
-                              hover: {
-                                fill: "#f0a500",
-                                outline: "none",
-                              },
-                              pressed: {
-                                fill: "#d28000",
-                                outline: "none",
-                              },
-                            }}
-                          />
-                          <Marker coordinates={geoCentroid(geo)}>
-                            <circle r={3} fill="#000" />
-                          </Marker>
-                        </>
-                      ))
-                  }
-                </Geographies>
-              </ComposableMap>
-              <p className="text-white capitalize text-[2.5vmin] heading font-bold underline">
-                {continent}
-              </p>
-            </div>
-          </FollowerPointerCard>
+          <div className="flex flex-col items-center bg-dot-thick-neutral-700 p-4 sm:p-10">
+            <ComposableMap
+              projection="geoMercator"
+              projectionConfig={continentData.mapconfig}
+            >
+              <Geographies geography={mapData}>
+                {({ geographies }) =>
+                  geographies
+                    .filter((geo) =>
+                      countriesName.includes(geo.properties.name)
+                    )
+                    .map((geo) => (
+                      <>
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          style={{
+                            default: {
+                              fill: "#ffcc00",
+                              outline: "none",
+                            },
+                            hover: {
+                              fill: "#f0a500",
+                              outline: "none",
+                            },
+                            pressed: {
+                              fill: "#d28000",
+                              outline: "none",
+                            },
+                          }}
+                        />
+                        <Marker coordinates={geoCentroid(geo)}>
+                          <circle r={3} fill="#000" />
+                        </Marker>
+                      </>
+                    ))
+                }
+              </Geographies>
+            </ComposableMap>
+            <p className="text-white capitalize text-[2.5vmin] heading font-bold underline">
+              {continent}
+            </p>
+          </div>
         </BackgroundGradient>
         <div className="flex flex-col gap-[3vmin]">
           <PageDetailsDropDown
@@ -219,12 +212,21 @@ const Continent = () => {
           />
         </div>
       </div>
-      <div className="h-[40rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
+      <div className="h-[40rem] rounded-md flex flex-col gap-[2vmin] antialiased justify-center relative overflow-hidden">
+        <h1 className="text-[3vmin] text-white capitalize font-bold heading mx-[3vmax]">
+          photobooth
+        </h1>
         <InfiniteMovingCards
-          items={continentImage}
+          items={continentImage.slice(0, 7)}
           direction="right"
           speed="slow"
         />
+      </div>
+      <div className="flex flex-col items-center">
+        <h1 className="text-[5vmin] text-white capitalize font-bold heading text-center">
+          gallery
+        </h1>
+        <ImageScroll images={continentImage} />
       </div>
     </main>
   );
