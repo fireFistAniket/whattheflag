@@ -6,6 +6,8 @@ import { HeroHighlight, Highlight } from "../components/HighlightText";
 import { GlowingBorderButton } from "../components/MovingBorder";
 import { BentoGrid, BentoGridItem } from "../components/RegionGrid";
 import Loading from "../components/Loading";
+import { Link } from "react-router-dom";
+
 
 const World = lazy(() => import("../components/Globe"));
 
@@ -662,10 +664,7 @@ const Home = () => {
           </motion.div>
           <div className="absolute w-full bottom-0 inset-x-0 h-40 pointer-events-none select-none z-40" />
           <div className="absolute w-full -bottom-20 h-80 md:h-full z-10">
-            <World
-              data={sampleArcs}
-              globeConfig={globeConfig}
-            />
+            <World data={sampleArcs} globeConfig={globeConfig} />
           </div>
         </div>
       </div>
@@ -695,7 +694,7 @@ const Home = () => {
             <BentoGridItem
               key={i}
               title={item.title}
-              href={item.href}
+              href={`/continent/${item.href}`}
               description={item.description}
               header={item.header}
               className={i === 3 || i === 6 ? "md:col-span-2" : ""}
@@ -739,30 +738,35 @@ const Home = () => {
               <GlowingBorderButton
                 key={ind}
                 borderRadius="1.75rem"
-                className="bg-gradient-to-r from-[#1abc9c] to-[#9b59b6] text-white border-neutral-200 gap-2 items-center"
+                className="bg-gradient-to-r from-[#1abc9c] to-[#9b59b6] text-white border-neutral-200"
               >
-                <span className="className='border rounded-full w-8 h-8 inline-flex items-center justify-center bg-indigo-700">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="icon icon-tabler icons-tabler-outline icon-tabler-world"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-                    <path d="M3.6 9h16.8" />
-                    <path d="M3.6 15h16.8" />
-                    <path d="M11.5 3a17 17 0 0 0 0 18" />
-                    <path d="M12.5 3a17 17 0 0 1 0 18" />
-                  </svg>
-                </span>
-                <span>{country.name.common}</span>
+                <Link
+                  to={`/country/${country.name.common}`}
+                  className="flex gap-2 items-center"
+                >
+                  <span className="className='border rounded-full w-8 h-8 inline-flex items-center justify-center bg-indigo-700">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="icon icon-tabler icons-tabler-outline icon-tabler-world"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                      <path d="M3.6 9h16.8" />
+                      <path d="M3.6 15h16.8" />
+                      <path d="M11.5 3a17 17 0 0 0 0 18" />
+                      <path d="M12.5 3a17 17 0 0 1 0 18" />
+                    </svg>
+                  </span>
+                  <span>{country.name.common}</span>
+                </Link>
               </GlowingBorderButton>
             ))}
         </motion.div>
