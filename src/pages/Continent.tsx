@@ -213,32 +213,48 @@ const Continent = () => {
         <div className='flex flex-col gap-[3vmin]'>
           <PageDetailsDropDown
             btnTitle={"description"}
-            description={continentData.description}
+            description={
+              <p className='text-white text-lg'>{continentData.description}</p>
+            }
             isOpen
           />
           <PageDetailsDropDown
             btnTitle={"area"}
-            description={continentData.area}
+            description={
+              <p className='text-white text-lg'>{continentData.area}</p>
+            }
             isOpen={false}
           />
           <PageDetailsDropDown
             btnTitle={"borders"}
-            description={continentData.borders}
+            description={
+              <p className='text-white text-lg'>{continentData.borders}</p>
+            }
             isOpen={false}
           />
           <PageDetailsDropDown
             btnTitle={"population"}
-            description={continentData.population}
+            description={
+              <p className='text-white text-lg'>{continentData.population}</p>
+            }
             isOpen={false}
           />
           <PageDetailsDropDown
             btnTitle={"covered seas"}
-            description={continentData.covered_seas.join(", ")}
+            description={
+              <p className='text-white text-lg'>
+                {continentData.covered_seas.join(", ")}
+              </p>
+            }
             isOpen={false}
           />
           <PageDetailsDropDown
             btnTitle={"places to travel"}
-            description={continentData.places_to_travel.join(", ")}
+            description={
+              <p className='text-white text-lg'>
+                {continentData.places_to_travel.join(", ")}
+              </p>
+            }
             isOpen={false}
           />
           <PageDetailsDropDown
@@ -257,10 +273,14 @@ const Continent = () => {
             <FlagPin
               key={index}
               title={item.name.common}
-              href='https://twitter.com/mannupaaji'
+              href={`/country/${item.name.common}`}
             >
               <div className='flex basis-full p-4 tracking-tight text-slate-100/50 '>
-                <img src={item.flags.png} alt='' className='w-full' />
+                <img
+                  src={item.flags.png}
+                  alt={`${item.name.common} flag`}
+                  className='w-full'
+                />
               </div>
             </FlagPin>
           ))}

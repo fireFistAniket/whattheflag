@@ -1,0 +1,18 @@
+{
+  "name": "Australia & New Zealand",
+  "cover": "",
+  "description": "Australia and New Zealand are known for their stunning landscapes, indigenous cultures, and unique wildlife like kangaroos and kiwis.",
+  "area": "8,525,989 sq km",
+  "population": "32 million",
+  "places_to_travel": [
+    "Sydney, Australia",
+    "Auckland, New Zealand",
+    "Great Barrier Reef, Australia",
+    "Queenstown, New Zealand"
+  ],
+  "famous_monuments": [
+    "Sydney Opera House, Australia",
+    "Uluru (Ayers Rock), Australia",
+    "Waitomo Glowworm Caves, New Zealand"
+  ]
+}

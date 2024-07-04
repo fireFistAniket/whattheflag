@@ -744,7 +744,7 @@ const Home = () => {
                   to={`/country/${country.name.common}`}
                   className="flex gap-2 items-center"
                 >
-                  <span className="className='border rounded-full w-8 h-8 inline-flex items-center justify-center bg-indigo-700">
+                  <span className="border rounded-full w-8 h-8 inline-flex items-center justify-center bg-indigo-700">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"

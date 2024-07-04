@@ -1,0 +1,18 @@
+{
+  "name": "Southern Europe",
+  "cover": "",
+  "description": "Southern Europe is known for its Mediterranean coastlines, ancient ruins, and rich cultural heritage. It includes countries like Italy, Greece, Spain, Portugal, and Croatia.",
+  "area": "1,869,000 sq km",
+  "population": "153 million",
+  "places_to_travel": [
+    "Rome, Italy",
+    "Athens, Greece",
+    "Barcelona, Spain",
+    "Lisbon, Portugal"
+  ],
+  "famous_monuments": [
+    "Colosseum, Italy",
+    "Acropolis of Athens, Greece",
+    "Sagrada Família, Spain"
+  ]
+}

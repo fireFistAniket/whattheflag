@@ -1,0 +1,18 @@
+{
+  "name": "Northern Europe",
+  "cover": "",
+  "description": "Northern Europe is known for its natural beauty, vibrant cities, and cultural diversity. It includes countries like Sweden, Norway, Denmark, Finland, Iceland, and Baltic states.",
+  "area": "1,056,000 sq km",
+  "population": "105 million",
+  "places_to_travel": [
+    "Stockholm, Sweden",
+    "Oslo, Norway",
+    "Copenhagen, Denmark",
+    "Helsinki, Finland"
+  ],
+  "famous_monuments": [
+    "Vasa Museum, Sweden",
+    "Geirangerfjord, Norway",
+    "Copenhagen's Little Mermaid, Denmark"
+  ]
+}

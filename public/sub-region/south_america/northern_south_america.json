@@ -1,0 +1,18 @@
+{
+  "name": "Northern South America",
+  "cover": "",
+  "description": "Northern South America is known for its lush rainforests, ancient civilizations, and vibrant cultures. It includes countries like Colombia, Venezuela, Ecuador, and Guyana.",
+  "area": "3,780,000 sq km",
+  "population": "120 million",
+  "places_to_travel": [
+    "Bogota, Colombia",
+    "Caracas, Venezuela",
+    "Quito, Ecuador",
+    "Georgetown, Guyana"
+  ],
+  "famous_monuments": [
+    "Angel Falls, Venezuela",
+    "Lost City, Colombia",
+    "Galápagos Islands, Ecuador"
+  ]
+}

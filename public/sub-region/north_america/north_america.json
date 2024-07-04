@@ -1,0 +1,18 @@
+{
+  "name": "North America (USA & Canada)",
+  "cover": "",
+  "description": "North America includes the United States and Canada, known for their economic prosperity, cultural diversity, and natural landmarks like the Grand Canyon and Niagara Falls.",
+  "area": "21,090,000 sq km",
+  "population": "370 million",
+  "places_to_travel": [
+    "New York City, USA",
+    "Toronto, Canada",
+    "Los Angeles, USA",
+    "Vancouver, Canada"
+  ],
+  "famous_monuments": [
+    "Statue of Liberty, USA",
+    "Banff National Park, Canada",
+    "Golden Gate Bridge, USA"
+  ]
+}

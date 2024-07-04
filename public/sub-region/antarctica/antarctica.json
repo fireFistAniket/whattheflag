@@ -1,0 +1,14 @@
+{
+  "name": "Antarctica",
+  "cover": "",
+  "description": "Antarctica is a continent covered in ice, known for its extreme cold and unique wildlife like penguins, seals, and whales. It is primarily visited for scientific research.",
+  "area": "14,000,000 sq km",
+  "population": "No permanent population",
+  "places_to_travel": [
+    "McMurdo Station, Antarctica",
+    "South Pole",
+    "Antarctic Peninsula",
+    "Ross Ice Shelf"
+  ],
+  "famous_monuments": []
+}

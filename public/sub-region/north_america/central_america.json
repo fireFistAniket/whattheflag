@@ -1,0 +1,18 @@
+{
+  "name": "Central America & Caribbean",
+  "cover": "",
+  "description": "Central America and the Caribbean are known for their tropical beaches, diverse cultures, and ancient ruins. It includes countries like Mexico, Costa Rica, Cuba, Jamaica, and Bahamas.",
+  "area": "4,591,000 sq km",
+  "population": "229 million",
+  "places_to_travel": [
+    "Cancun, Mexico",
+    "Havana, Cuba",
+    "San José, Costa Rica",
+    "Nassau, Bahamas"
+  ],
+  "famous_monuments": [
+    "Chichen Itza, Mexico",
+    "Mayan Ruins, Belize",
+    "Old San Juan, Puerto Rico"
+  ]
+}
