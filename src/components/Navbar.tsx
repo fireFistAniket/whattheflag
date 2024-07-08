@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "../utils/cn";
 
 export function PlaceholdersAndVanishInput({
   placeholders,
   onChange,
   onSubmit,
+  onClick,
 }: {
   placeholders: string[];
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  onClick: (e: React.MouseEvent<HTMLFormElement>) => void;
 }) {
   const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
 
@@ -173,6 +175,9 @@ export function PlaceholdersAndVanishInput({
     vanishAndSubmit();
     onSubmit && onSubmit(e);
   };
+  const handleClick = (e: React.MouseEvent<HTMLFormElement>) => {
+    onClick(e);
+  };
   return (
     <form
       className={cn(
@@ -180,6 +185,7 @@ export function PlaceholdersAndVanishInput({
         value && ""
       )}
       onSubmit={handleSubmit}
+      onClick={handleClick}
     >
       <canvas
         className={cn(
@@ -200,7 +206,7 @@ export function PlaceholdersAndVanishInput({
         value={value}
         type="text"
         className={cn(
-          "w-full relative text-sm sm:text-base z-50 border-none text-white bg-transparent h-full rounded-full focus:outline-none focus:ring-0 pl-4 sm:pl-10 pr-20",
+          "w-full relative text-sm sm:text-base z-50 border-none text-white bg-transparent h-full rounded-full focus:outline-none focus:ring-0 pl-4 sm:pl-10 pr-20 pointer-events-none",
           animating && "text-transparent"
         )}
       />
@@ -275,6 +281,7 @@ export function PlaceholdersAndVanishInput({
 }
 
 const Navbar = () => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
   };
@@ -283,9 +290,11 @@ const Navbar = () => {
     console.log("submitted");
   };
 
-  const placeholders = [
-    "country", "sub-region", "continent", "currencies"
-  ];
+  const handelModalOpen = (_e: React.MouseEvent<HTMLFormElement>) => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const placeholders = ["country", "sub-region", "continent", "currencies"];
 
   return (
     <nav className="bg-transparent w-full z-20 start-0">
@@ -347,6 +356,7 @@ const Navbar = () => {
               placeholders={placeholders}
               onChange={handleChange}
               onSubmit={onSubmit}
+              onClick={handelModalOpen}
             />
           </div>
           <button
@@ -432,6 +442,88 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20, scale: 0.6 }}
+        animate={
+          isModalOpen
+            ? {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                },
+              }
+            : {}
+        }
+        exit={{ opacity: 0, y: 20, scale: 0.6 }}
+        className="overflow-hidden flex items-center justify-center"
+      >
+        <div className="border border-neutral-500 rounded-lg px-[4vmax] py-[2vmax]">
+          <form className="max-w-lg mx-auto">
+            <div className="flex">
+              <div>
+                <select
+                  name=""
+                  id=""
+                  className="z-10 divide-y divide-gray-100 h-full rounded-tl-lg rounded-bl-lg shadow w-44 bg-gray-100"
+                >
+                  <option
+                    value=""
+                    className="py-2 text-sm hovetext-gray-200 inline-flex w-full px-4"
+                  >
+                    country
+                  </option>
+                  <option
+                    value=""
+                    className="py-2 text-sm hovetext-gray-200 inline-flex w-full px-4"
+                  >
+                    continent
+                  </option>
+                  <option
+                    value=""
+                    className="py-2 text-sm hovetext-gray-200 inline-flex w-full px-4"
+                  >
+                    currencies
+                  </option>
+                </select>
+              </div>
+              <div className="relative w-[45vmax]">
+                <input
+                  type="search"
+                  id="search-dropdown"
+                  className="block p-2.5 w-full z-20 text-sm bg-gray-50 rounded-e-lg border-s border focus:ring-blue-500 border-s-gray-700 border-gray-600 placeholder-gray-400 text-white"
+                  placeholder="Search Mockups, Logos, Design Templates..."
+                  required
+                />
+                <button
+                  type="submit"
+                  className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  <svg
+                    className="w-4 h-4"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    />
+                  </svg>
+                  <span className="sr-only">Search</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </motion.div>
     </nav>
   );
 };

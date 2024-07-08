@@ -20,6 +20,7 @@ import { ImageScroll } from "../components/ImageScroll";
 import { GlowingBorderButton } from "../components/MovingBorder";
 import { HeroHighlight, Highlight } from "../components/HighlightText";
 import { motion } from "framer-motion";
+import Loading from "../components/Loading";
 
 interface GeoProperties {
   name: string;
@@ -47,10 +48,13 @@ const Country = () => {
 
   const [statesName, setStatesName] = useState<any[]>([]);
 
+  const [loading, setLoading] = useState<boolean>(false);
+
   const mapContainerRef = useRef<null | HTMLDivElement>(null);
 
   async function getImagesContinent(name: string | any, page: number | any) {
     let str = name.split(" ").join("+");
+    setLoading(true);
     try {
       const res = await fetch(
         `https://pixabay.com/api/?key=${
@@ -68,6 +72,8 @@ const Country = () => {
       setContinentImage((prev) => [...prev, ...images]);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -169,6 +175,10 @@ const Country = () => {
   useEffect(() => {
     getCountryDetails(country);
   }, [country]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <main>

@@ -14,6 +14,7 @@ import PageDetailsDropDown from "../components/PageDetailsDropDown";
 import { InfiniteMovingCards } from "../components/InfiniteImage";
 import { ImageScroll } from "../components/ImageScroll";
 import { FlagPin } from "../components/FlagPin";
+import Loading from "../components/Loading";
 
 interface ContinentDataTypes {
   name: string;
@@ -49,6 +50,8 @@ const Continent = () => {
     famous_monuments: [],
   });
   const [countriesName, setCountriesName] = useState<string[]>([]);
+
+  const [loading, setLoading] = useState<boolean>(false);
 
   const [countriesDetails, setCountriesDetails] = useState<
     [
@@ -101,6 +104,7 @@ const Continent = () => {
 
   async function getImagesContinent(name: string | any, page: number | any) {
     let str = name.split(" ").join("+");
+    setLoading(true);
     try {
       const res = await fetch(
         `https://pixabay.com/api/?key=${
@@ -118,6 +122,8 @@ const Continent = () => {
       setContinentImage((prev) => [...prev, ...images]);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -152,23 +158,27 @@ const Continent = () => {
     getImagesContinent(continent, pageNumber);
   }, [pageNumber]);
 
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <main>
-      <div className='relative flex items-center justify-center'>
+      <div className="relative flex items-center justify-center">
         <DetailCover imageUrl={continentData.cover}>
-          <p className='font-bold text-[3vmax] capitalize heading'>
+          <p className="font-bold text-[3vmax] capitalize heading">
             {continent}
           </p>
-          <p className='font-normal text-[1.2vmax]'>
+          <p className="font-normal text-[1.2vmax]">
             {continentData.population}
           </p>
         </DetailCover>
       </div>
-      <div className='flex items-start mx-[3vmax] gap-[3vmax] my-[3vmin]'>
-        <BackgroundGradient className='rounded-[22px] min-w-[35vmax] bg-black'>
-          <div className='flex flex-col items-center bg-dot-thick-neutral-700 p-4 sm:p-10'>
+      <div className="flex items-start mx-[3vmax] gap-[3vmax] my-[3vmin]">
+        <BackgroundGradient className="rounded-[22px] min-w-[35vmax] bg-black">
+          <div className="flex flex-col items-center bg-dot-thick-neutral-700 p-4 sm:p-10">
             <ComposableMap
-              projection='geoMercator'
+              projection="geoMercator"
               projectionConfig={continentData.mapconfig}
             >
               <Geographies geography={mapData}>
@@ -198,51 +208,51 @@ const Continent = () => {
                           }}
                         />
                         <Marker coordinates={geoCentroid(geo)}>
-                          <circle r={3} fill='#000' />
+                          <circle r={3} fill="#000" />
                         </Marker>
                       </>
                     ))
                 }
               </Geographies>
             </ComposableMap>
-            <p className='text-white capitalize text-[2.5vmin] heading font-bold underline'>
+            <p className="text-white capitalize text-[2.5vmin] heading font-bold underline">
               {continent}
             </p>
           </div>
         </BackgroundGradient>
-        <div className='flex flex-col gap-[3vmin]'>
+        <div className="flex flex-col gap-[3vmin]">
           <PageDetailsDropDown
             btnTitle={"description"}
             description={
-              <p className='text-white text-lg'>{continentData.description}</p>
+              <p className="text-white text-lg">{continentData.description}</p>
             }
             isOpen
           />
           <PageDetailsDropDown
             btnTitle={"area"}
             description={
-              <p className='text-white text-lg'>{continentData.area}</p>
+              <p className="text-white text-lg">{continentData.area}</p>
             }
             isOpen={false}
           />
           <PageDetailsDropDown
             btnTitle={"borders"}
             description={
-              <p className='text-white text-lg'>{continentData.borders}</p>
+              <p className="text-white text-lg">{continentData.borders}</p>
             }
             isOpen={false}
           />
           <PageDetailsDropDown
             btnTitle={"population"}
             description={
-              <p className='text-white text-lg'>{continentData.population}</p>
+              <p className="text-white text-lg">{continentData.population}</p>
             }
             isOpen={false}
           />
           <PageDetailsDropDown
             btnTitle={"covered seas"}
             description={
-              <p className='text-white text-lg'>
+              <p className="text-white text-lg">
                 {continentData.covered_seas.join(", ")}
               </p>
             }
@@ -251,7 +261,7 @@ const Continent = () => {
           <PageDetailsDropDown
             btnTitle={"places to travel"}
             description={
-              <p className='text-white text-lg'>
+              <p className="text-white text-lg">
                 {continentData.places_to_travel.join(", ")}
               </p>
             }
@@ -264,47 +274,47 @@ const Continent = () => {
           />
         </div>
       </div>
-      <div className='flex flex-col items-center mx-[2vmax] my-[3vmax]'>
-        <h1 className='text-[5vmin] text-white capitalize font-bold heading text-center'>
+      <div className="flex flex-col items-center mx-[2vmax] my-[3vmax]">
+        <h1 className="text-[5vmin] text-white capitalize font-bold heading text-center">
           Countries
         </h1>
-        <div className='min-h-[40rem] flex flex-wrap gap-8 justify-center '>
+        <div className="min-h-[40rem] flex flex-wrap gap-8 justify-center ">
           {countriesDetails.map((item, index) => (
             <FlagPin
               key={index}
               title={item.name.common}
               href={`/country/${item.name.common}`}
             >
-              <div className='flex basis-full p-4 tracking-tight text-slate-100/50 '>
+              <div className="flex basis-full p-4 tracking-tight text-slate-100/50 ">
                 <img
                   src={item.flags.png}
                   alt={`${item.name.common} flag`}
-                  className='w-full'
+                  className="w-full"
                 />
               </div>
             </FlagPin>
           ))}
         </div>
       </div>
-      <div className='h-[40rem] rounded-md flex flex-col gap-[2vmin] antialiased justify-center relative overflow-hidden'>
-        <h1 className='text-[3vmin] text-white capitalize font-bold heading mx-[3vmax]'>
+      <div className="h-[40rem] rounded-md flex flex-col gap-[2vmin] antialiased justify-center relative overflow-hidden">
+        <h1 className="text-[3vmin] text-white capitalize font-bold heading mx-[3vmax]">
           photobooth
         </h1>
         <InfiniteMovingCards
           items={continentImage.slice(0, 7)}
-          direction='right'
-          speed='slow'
+          direction="right"
+          speed="slow"
         />
       </div>
-      <div className='flex flex-col items-center'>
-        <h1 className='text-[5vmin] text-white capitalize font-bold heading text-center'>
+      <div className="flex flex-col items-center">
+        <h1 className="text-[5vmin] text-white capitalize font-bold heading text-center">
           gallery
         </h1>
         <ImageScroll images={continentImage} />
         <button
-          type='button'
+          type="button"
           onClick={() => setPageNumber(pageNumber + 1)}
-          className='rounded-2xl text-xl text-white capitalize font-semibold border-neutral-300 border mt-[2vmin] py-[2vmin] para px-[4vmin]'
+          className="rounded-2xl text-xl text-white capitalize font-semibold border-neutral-300 border mt-[2vmin] py-[2vmin] para px-[4vmin]"
         >
           load more
         </button>
